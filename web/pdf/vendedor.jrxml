@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4c5e7e7a-c4e6-4934-bd02-eb5f681d3908">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="101"/>
+	<queryString>
+		<![CDATA[select count(d.idvendedor),p.* from proveedor p,ventas  d where p.ruc=d.idvendedor group by d.idvendedor,p.ruc limit 10]]>
+	</queryString>
+	<field name="count" class="java.lang.Long"/>
+	<field name="ruc" class="java.lang.String"/>
+	<field name="nombres" class="java.lang.String"/>
+	<field name="apellidos" class="java.lang.String"/>
+	<field name="correo" class="java.lang.String"/>
+	<field name="telefono" class="java.lang.String"/>
+	<field name="celular" class="java.lang.String"/>
+	<field name="direccion" class="java.lang.String"/>
+	<field name="estpersona" class="java.lang.Boolean"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="81" y="22" width="389" height="37" uuid="d9576e61-a973-4072-86bc-bfb543bdd9da"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[LOS 10 MEJORES VENDEDORES]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="38" y="0" width="100" height="20" uuid="93ff3f36-9994-4e71-8421-0dedb6f4c975"/>
+				<text><![CDATA[Codigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="175" y="0" width="100" height="20" uuid="26bd3515-594c-4f4c-89d3-c92cc005cd2b"/>
+				<text><![CDATA[Nombres]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="354" y="0" width="100" height="20" uuid="fb7a718d-1335-4302-87e1-a3f875f7dfc0"/>
+				<text><![CDATA[Cantidades compradas]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="38" y="2" width="100" height="20" uuid="7e00076e-c043-4ed5-a0f5-2a1dbe859c6f"/>
+				<textFieldExpression><![CDATA[$F{ruc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="175" y="2" width="100" height="20" uuid="b972bd0f-1415-4352-9a3f-e241ad07e9dd"/>
+				<textFieldExpression><![CDATA[$F{nombres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="354" y="2" width="100" height="20" uuid="fc305b6e-d9c0-4b2f-a9d8-e05ed0623e99"/>
+				<textFieldExpression><![CDATA[$F{count}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="234" splitType="Stretch">
+			<pieChart>
+				<chart>
+					<reportElement x="25" y="16" width="504" height="205" uuid="05bdfe29-6586-47c2-b10c-d35b8514236c"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{ruc}]]></keyExpression>
+					<valueExpression><![CDATA[$F{count}]]></valueExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

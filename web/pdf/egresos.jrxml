@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4c5e7e7a-c4e6-4934-bd02-eb5f681d3908">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="240"/>
+	<queryString>
+		<![CDATA[select *,(select sum(total)from compras) from compras v]]>
+	</queryString>
+	<field name="idcomprador" class="java.lang.String"/>
+	<field name="idvendedor" class="java.lang.String"/>
+	<field name="frealizada" class="java.sql.Date"/>
+	<field name="total" class="java.lang.Double"/>
+	<field name="iva" class="java.lang.Double"/>
+	<field name="detalle" class="java.lang.String"/>
+	<field name="subtotal" class="java.lang.Double"/>
+	<field name="idcodigo" class="java.lang.Integer"/>
+	<field name="estpedido" class="java.lang.Boolean"/>
+	<field name="sum" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="191" splitType="Stretch">
+			<staticText>
+				<reportElement x="38" y="22" width="274" height="79" uuid="33576c06-764a-4af1-a5dd-320f61dee387"/>
+				<textElement>
+					<font fontName="Arial Black" size="46"/>
+				</textElement>
+				<text><![CDATA[UNIMODA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="357" y="22" width="100" height="20" uuid="a6a7641f-a664-49b8-9645-c71f78fc663b"/>
+				<textElement>
+					<font fontName="Bell MT"/>
+				</textElement>
+				<text><![CDATA[Venta de Ropa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="357" y="62" width="122" height="20" uuid="4538f096-522a-4ef3-94cf-7558e17ecee3"/>
+				<textElement>
+					<font fontName="Bell MT"/>
+				</textElement>
+				<text><![CDATA[unimodaibarra@gmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="357" y="42" width="100" height="20" uuid="b930168a-e0e3-4301-aa8b-eb0bad2904c6"/>
+				<textElement>
+					<font fontName="Bell MT"/>
+				</textElement>
+				<text><![CDATA[Contactos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="357" y="81" width="122" height="20" uuid="3edbcab9-29c7-4e4c-9cec-560d89b46b98"/>
+				<textElement>
+					<font fontName="Bell MT"/>
+				</textElement>
+				<text><![CDATA[Antonio Ante - Ecuador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="38" y="115" width="100" height="20" uuid="61a0ad86-ef49-4f89-92e8-1a47c48ad425"/>
+				<text><![CDATA[REPORTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="38" y="135" width="457" height="43" uuid="7d6dd9b3-4b2c-4257-aced-aadff8b6e09a"/>
+				<textElement>
+					<font fontName="Arial Black" size="14"/>
+				</textElement>
+				<text><![CDATA[INGRESOS TOTALES DE COMPRAS...!]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="38" y="0" width="505" height="20" uuid="5f3793d0-7d9a-4223-882d-0d399dab5efb"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[----------------------------------------------------------------------------------------------------------------------------------------------------]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="62" splitType="Stretch">
+			<staticText>
+				<reportElement x="38" y="10" width="100" height="20" uuid="93ff3f36-9994-4e71-8421-0dedb6f4c975"/>
+				<textElement>
+					<font fontName="Bell MT"/>
+				</textElement>
+				<text><![CDATA[Codigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="158" y="10" width="100" height="20" uuid="26bd3515-594c-4f4c-89d3-c92cc005cd2b"/>
+				<textElement>
+					<font fontName="Bell MT"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="10" width="100" height="20" uuid="fb7a718d-1335-4302-87e1-a3f875f7dfc0"/>
+				<textElement>
+					<font fontName="Bell MT"/>
+				</textElement>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="38" y="35" width="505" height="20" uuid="611ee183-fb93-45a5-a763-c387d7e41744"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[----------------------------------------------------------------------------------------------------------------------------------------------------]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="51" splitType="Stretch">
+			<textField>
+				<reportElement x="38" y="16" width="100" height="20" uuid="7e00076e-c043-4ed5-a0f5-2a1dbe859c6f"/>
+				<textElement>
+					<font fontName="Bell MT"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idcodigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="158" y="16" width="100" height="20" uuid="b972bd0f-1415-4352-9a3f-e241ad07e9dd"/>
+				<textElement>
+					<font fontName="Bell MT"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{frealizada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="16" width="100" height="20" uuid="fc305b6e-d9c0-4b2f-a9d8-e05ed0623e99"/>
+				<textElement>
+					<font fontName="Bell MT"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="246" splitType="Stretch">
+			<staticText>
+				<reportElement x="158" y="213" width="100" height="20" uuid="e4efcdaa-0c78-4703-ad80-128e48d91a9e"/>
+				<textElement>
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Ingresos Totales]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="312" y="213" width="100" height="20" uuid="b1cff0b0-cde1-4f42-97fe-bf561cfb1b19"/>
+				<textElement>
+					<font fontName="Arial Black"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sum}]]></textFieldExpression>
+			</textField>
+			<bar3DChart>
+				<chart>
+					<reportElement x="17" y="14" width="511" height="151" uuid="c2fb9807-31db-44c0-9e77-dfcd76673283"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["INGRESOS"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{frealizada}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{total}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<bar3DPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</bar3DPlot>
+			</bar3DChart>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
